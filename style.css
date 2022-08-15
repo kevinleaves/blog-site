@@ -1,0 +1,16 @@
+h1 {
+  background-color: lightblue;
+  color: white;
+}
+
+#timeline {
+  background-color: lightblue;
+  margin-left: 350px;
+  padding: 5px;
+}
+
+.post {
+  background-color: orange;
+  margin: 25px;
+  padding: 15px;
+}
