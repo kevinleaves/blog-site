@@ -4,13 +4,16 @@ h1 {
 }
 
 #timeline {
+  display: flex;
+  flex-direction: column-reverse;
   background-color: lightblue;
+  border: 5px solid;
   margin-left: 350px;
-  padding: 5px;
+  padding: 20px;
+  gap: 20px;
 }
 
 .post {
   background-color: orange;
-  margin: 25px;
   padding: 15px;
 }
