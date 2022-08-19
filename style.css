@@ -1,6 +1,8 @@
 h1 {
   background-color: lightblue;
   color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -27,3 +29,6 @@ h1 {
   border-color: black;
 }
 
+#navbar {
+  grid-column: 2 / 3;
+}
