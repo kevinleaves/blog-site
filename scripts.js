@@ -82,7 +82,7 @@ function generateDummyPost () {
   ]
 
   var objects = ['basketball', 'football', 'apple', 'banana', 'book', 'cup of water', 'bottle',
-  'sandwich', 'bird', 'cat', 'Mickey Mouse', 'dog', 'television'
+  'sandwich', 'bird', 'cat', 'Mickey Mouse', 'dog', 'television', 'fire',
   ]
 
   //generate random user using word banks
@@ -98,12 +98,16 @@ function generateDummyPost () {
   var randomObj = objects[Math.floor(Math.random() * objects.length)]
   var randomBody = `${randomTitle} because ${randomSubject} ${randomVerb} the ${randomObj}.`
 
+  //date is current date whenever the site is accessed
+  var currentDate = new Date(Date());
+  var currentDateStr = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`
+  
   //push to dummy data array  
   var randomPost = {
     'user': randomUser,
     'title': randomTitle,
     'body': randomBody,
-    'date': '08/20/22', //should be current date whenever site is accessed
+    'date': currentDateStr, 
   }
   dummyData.push(randomPost)
 }
