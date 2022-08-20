@@ -33,7 +33,7 @@ var dummyData = [
 ]
 
 //dummy data array
-//for each obj
+//for each post obj
 for (var i = 0; i < dummyData.length; i++) {
   //create div for overall post
   var post = document.createElement('div');
@@ -60,3 +60,23 @@ for (var i = 0; i < dummyData.length; i++) {
   //append post to timeline
   timeline.appendChild(post);
 }
+
+//function to create randomly generated dummy posts every 1 second
+//generate random body string using word banks
+var subjects = ['timmy', 'kenny', 'roger', 'han', 'george', 'hao', 'kevin',
+'he', 'she', 'they', 'those guys', 'those girls',
+]
+
+var verbs = ['crossed over', 'threw', 'drank', 'sipped', 'ate', 'walked',
+'ran', 'wrote', 'read', 'held', 'spun', 'lifted', 'saw',
+]
+
+var objects = ['basketball', 'football', 'apple', 'banana', 'book', 'cup of water', 'bottle',
+'sandwich', 'bird', 'cat', 'Mickey Mouse', 'dog', 'television'
+]
+
+var randomSubject = subjects[Math.floor(Math.random() * subjects.length)]
+var randomVerb = verbs[Math.floor(Math.random() * verbs.length)]
+var randomObj = object[Math.floor(Math.random() * object.length)]
+var body = `${randomSubject} ${randomVerb} the ${randomObj}.`
+
