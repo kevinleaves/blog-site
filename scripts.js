@@ -96,7 +96,7 @@ function generateDummyPost () {
   var randomSubject = subjects[Math.floor(Math.random() * subjects.length)]
   var randomVerb = verbs[Math.floor(Math.random() * verbs.length)]
   var randomObj = objects[Math.floor(Math.random() * objects.length)]
-  var randomBody = `${randomSubject} ${randomVerb} the ${randomObj}.`
+  var randomBody = `${randomTitle} because ${randomSubject} ${randomVerb} the ${randomObj}.`
 
   //push to dummy data array  
   var randomPost = {
