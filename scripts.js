@@ -91,6 +91,10 @@ btn.addEventListener('click', function() {
   generateDummyPost()
 });
 
+const updateButton = document.getElementById('update');
+updateButton.addEventListener('click', function() {
+  renderPosts()
+});
 
 //renders dummyData to DOM
 function renderPosts() {
