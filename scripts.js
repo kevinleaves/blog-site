@@ -91,30 +91,36 @@ btn.addEventListener('click', function() {
   generateDummyPost()
 });
 
+
 //renders dummyData to DOM
-for (var i = 0; i < dummyData.length; i++) {
-  //create div for overall post
-  var post = document.createElement('div');
-  post.classList.add('post')
-
-  //create child divs for each obj key
-  var user = document.createElement('div');
-  var title = document.createElement('div');
-  var date = document.createElement('div');
-  var body = document.createElement('div');
-
-  //populate all divs with text content
-  user.textContent = dummyData[i].user;
-  title.textContent = dummyData[i].title;
-  date.textContent = dummyData[i].date;
-  body.textContent = dummyData[i].body;
-
-  //add children to post
-  post.appendChild(user)
-  post.appendChild(title)
-  post.appendChild(date)
-  post.appendChild(body)
-
-  //append post to timeline
-  timeline.appendChild(post);
+function renderPosts() {
+  for (var i = 0; i < dummyData.length; i++) {
+    //create div for overall post
+    var post = document.createElement('div');
+    post.classList.add('post')
+  
+    //create child divs for each obj key
+    var user = document.createElement('div');
+    var title = document.createElement('div');
+    var date = document.createElement('div');
+    var body = document.createElement('div');
+  
+    //populate all divs with text content
+    user.textContent = dummyData[i].user;
+    title.textContent = dummyData[i].title;
+    date.textContent = dummyData[i].date;
+    body.textContent = dummyData[i].body;
+  
+    //add children to post
+    post.appendChild(user)
+    post.appendChild(title)
+    post.appendChild(date)
+    post.appendChild(body)
+  
+    //append post to timeline
+    timeline.appendChild(post);
+  }
 }
+
+renderPosts()
+
