@@ -104,7 +104,7 @@ function generatePosts () {
 
 //renders dummyData to DOM
 function renderPosts() {
-  for (var i = 0; i < dummyData.length; i++) {
+  for (var i = dummyData.length-1; i >= 0; i--) {
     //create div for overall post
     var post = document.createElement('div');
     post.classList.add('post')
