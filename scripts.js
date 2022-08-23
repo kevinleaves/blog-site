@@ -85,16 +85,22 @@ function generateDummyPost() {
   dummyData.push(randomPost)
 }
 
-//repeats every 1 second
 const btn = document.getElementById('generate');
 btn.addEventListener('click', function() {
-  generateDummyPost()
+  generatePosts ()
 });
 
 const updateButton = document.getElementById('update');
 updateButton.addEventListener('click', function() {
   renderPosts()
 });
+
+//generates post every 1 second in the background
+function generatePosts () {
+  var interval = setInterval(function() {
+    generateDummyPost();
+  }, 1000)
+}
 
 //renders dummyData to DOM
 function renderPosts() {
