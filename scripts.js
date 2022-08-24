@@ -32,8 +32,6 @@ var dummyData = [
   },      
 ]
 
-
-
 //function to create randomly generated dummy posts every 1 second
 function generateDummyPost() {
   
@@ -85,22 +83,15 @@ function generateDummyPost() {
   dummyData.push(randomPost)
 }
 
-const btn = document.getElementById('generate');
-btn.addEventListener('click', function() {
-  generatePosts ()
-});
+//generates post every 1 second in the background upon site load
+setInterval(function() {
+  generateDummyPost();
+}, 1000)
 
 const updateButton = document.getElementById('update');
 updateButton.addEventListener('click', function() {
   renderPosts()
 });
-
-//generates post every 1 second in the background
-function generatePosts () {
-  var interval = setInterval(function() {
-    generateDummyPost();
-  }, 1000)
-}
 
 //renders dummyData to DOM
 function renderPosts() {
@@ -133,4 +124,14 @@ function renderPosts() {
 }
 
 renderPosts()
+
+// function renderPost() {
+//   var post = document.createElement('div');
+//   post.classList.add('post')
+// }
+// {
+//   'body': body.value,
+// }
+
+// timeline.appendChild(post)
 
