@@ -127,7 +127,7 @@ function renderPosts(arr) {
       post.appendChild(body)
     
       //append post to timeline
-      timeline.appendChild(post);
+      timeline.prepend(post);
 
       //once rendered, flip the value to true
       arr[i].isRendered = true;
