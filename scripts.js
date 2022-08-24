@@ -137,6 +137,7 @@ function renderPosts(arr) {
 
 renderPosts(dummyData)
 
+
 // function renderPost() {
 //   var post = document.createElement('div');
 //   post.classList.add('post')
@@ -146,4 +147,26 @@ renderPosts(dummyData)
 // }
 
 // timeline.appendChild(post)
+
+function addPost () {
+  var newPost = {
+    'user': document.getElementById('user').value,
+    'title': document.getElementById('title').value,
+    'date': document.getElementById('date').value,
+    'body': document.getElementById('body').value,
+    'isRendered': false,
+  }
+  console.log(newPost)
+  dummyData.push(newPost)
+  renderPosts(dummyData)
+}
+
+var submit = document.getElementById('submit');
+submit.addEventListener('click', () => {
+  addPost()
+});
+//on post button click
+//save user input to an object, add it to dummydata
+//render that object to dom (call renderPosts)
+//reset the input fields
 
