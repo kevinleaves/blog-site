@@ -90,12 +90,12 @@ setInterval(function() {
 
 const updateButton = document.getElementById('update');
 updateButton.addEventListener('click', function() {
-  renderPosts()
+  renderPosts(dummyData)
 });
 
 //renders dummyData to DOM
-function renderPosts() {
-  for (var i = dummyData.length-1; i >= 0; i--) {
+function renderPosts(arr) {
+  for (var i = arr.length-1; i >= 0; i--) {
     //create div for overall post
     var post = document.createElement('div');
     post.classList.add('post')
@@ -107,10 +107,10 @@ function renderPosts() {
     var body = document.createElement('div');
   
     //populate all divs with text content
-    user.textContent = dummyData[i].user;
-    title.textContent = dummyData[i].title;
-    date.textContent = dummyData[i].date;
-    body.textContent = dummyData[i].body;
+    user.textContent = arr[i].user;
+    title.textContent = arr[i].title;
+    date.textContent = arr[i].date;
+    body.textContent = arr[i].body;
   
     //add children to post
     post.appendChild(user)
@@ -123,7 +123,7 @@ function renderPosts() {
   }
 }
 
-renderPosts()
+renderPosts(dummyData)
 
 // function renderPost() {
 //   var post = document.createElement('div');
