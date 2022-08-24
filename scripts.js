@@ -5,30 +5,35 @@ var dummyData = [
   'title': 'sunday recap',
   'body': 'hooped, went to whole foods, worked on app',
   'date': '08/14/22',
+  'isRendered': false,
   },
   {
   'user': 'kenny',
   'title': 'king of the court was sick',
   'body': 'i crossed han up so bad lol.',
   'date': '08/14/22',
+  'isRendered': false,
   },
   {
   'user': 'timmy',
   'title': 'sunday is for chillin',
   'body': 'went to the beach 2day it\'s whateva',
   'date': '08/14/22',
+  'isRendered': false,
   },
   {
   'user': 'han',
   'title': 'i can\'t shoot a jumpshot going right',
   'body': 'i kept getting blocked today',
   'date': '08/14/22',
+  'isRendered': false,
   },
   {
   'user': 'roger',
   'title': 'good games today',
   'body': 'pull-up jumpshot lookin NICE',
   'date': '08/14/22',
+  'isRendered': false,
   },      
 ]
 
@@ -79,6 +84,7 @@ function generateDummyPost() {
     'title': randomTitle,
     'body': randomBody,
     'date': currentDateStr, 
+    'isRendered': false,
   }
   dummyData.push(randomPost)
 }
@@ -96,30 +102,36 @@ updateButton.addEventListener('click', function() {
 //renders dummyData to DOM
 function renderPosts(arr) {
   for (var i = arr.length-1; i >= 0; i--) {
-    //create div for overall post
-    var post = document.createElement('div');
-    post.classList.add('post')
-  
-    //create child divs for each obj key
-    var user = document.createElement('div');
-    var title = document.createElement('div');
-    var date = document.createElement('div');
-    var body = document.createElement('div');
-  
-    //populate all divs with text content
-    user.textContent = arr[i].user;
-    title.textContent = arr[i].title;
-    date.textContent = arr[i].date;
-    body.textContent = arr[i].body;
-  
-    //add children to post
-    post.appendChild(user)
-    post.appendChild(title)
-    post.appendChild(date)
-    post.appendChild(body)
-  
-    //append post to timeline
-    timeline.appendChild(post);
+    //if object not already rendered, render it
+    if (arr[i].isRendered === false) {
+      //create div for overall post
+      var post = document.createElement('div');
+      post.classList.add('post')
+    
+      //create child divs for each obj key
+      var user = document.createElement('div');
+      var title = document.createElement('div');
+      var date = document.createElement('div');
+      var body = document.createElement('div');
+    
+      //populate all divs with text content
+      user.textContent = arr[i].user;
+      title.textContent = arr[i].title;
+      date.textContent = arr[i].date;
+      body.textContent = arr[i].body;
+    
+      //add children to post
+      post.appendChild(user)
+      post.appendChild(title)
+      post.appendChild(date)
+      post.appendChild(body)
+    
+      //append post to timeline
+      timeline.appendChild(post);
+
+      //once rendered, flip the value to true
+      arr[i].isRendered = true;
+    }
   }
 }
 
