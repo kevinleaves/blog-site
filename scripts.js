@@ -159,6 +159,11 @@ function addPost () {
   console.log(newPost)
   dummyData.push(newPost)
   renderPosts(dummyData)
+
+  document.getElementById('user').value = ''
+  document.getElementById('title').value = ''
+  document.getElementById('date').value = ''
+  document.getElementById('body').value = ''
 }
 
 var submit = document.getElementById('submit');
