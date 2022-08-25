@@ -99,38 +99,44 @@ updateButton.addEventListener('click', function() {
   renderPosts(dummyData)
 });
 
+//render a single post given a post object
+function renderPost(postObj) {
+  var post = document.createElement('div');
+  post.classList.add('post')
+
+  //create child divs for each obj key
+  var user = document.createElement('div');
+  var title = document.createElement('div');
+  var date = document.createElement('div');
+  var body = document.createElement('div');
+
+  //populate all divs with text content
+  user.textContent = postObj.user;
+  title.textContent = postObj.title;
+  date.textContent = postObj.date;
+  body.textContent = postObj.body;
+  
+  //add children to post
+  post.appendChild(user)
+  post.appendChild(title)
+  post.appendChild(date)
+  post.appendChild(body)
+
+  //append post to timeline
+  timeline.prepend(post);
+
+  //once rendered, flip the value to true
+  postObj.isRendered = true;
+}
+
+
+
 //renders dummyData to DOM
 function renderPosts(arr) {
   for (var i = arr.length-1; i >= 0; i--) {
     //if object not already rendered, render it
     if (arr[i].isRendered === false) {
-      //create div for overall post
-      var post = document.createElement('div');
-      post.classList.add('post')
-    
-      //create child divs for each obj key
-      var user = document.createElement('div');
-      var title = document.createElement('div');
-      var date = document.createElement('div');
-      var body = document.createElement('div');
-    
-      //populate all divs with text content
-      user.textContent = arr[i].user;
-      title.textContent = arr[i].title;
-      date.textContent = arr[i].date;
-      body.textContent = arr[i].body;
-    
-      //add children to post
-      post.appendChild(user)
-      post.appendChild(title)
-      post.appendChild(date)
-      post.appendChild(body)
-    
-      //append post to timeline
-      timeline.prepend(post);
-
-      //once rendered, flip the value to true
-      arr[i].isRendered = true;
+      renderPost(arr[i]);
     }
   }
 }
