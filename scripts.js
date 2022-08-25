@@ -162,9 +162,9 @@ function addPost () {
     'body': document.getElementById('body').value,
     'isRendered': false,
   }
-  console.log(newPost)
-  dummyData.push(newPost)
-  renderPosts(dummyData)
+  
+  dummyData.push(newPost);
+  renderPost(newPost);
 
   document.getElementById('user').value = ''
   document.getElementById('title').value = ''
