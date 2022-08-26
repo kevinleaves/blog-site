@@ -76,7 +76,8 @@ function generateDummyPost() {
 
   //date is current date whenever the site is accessed
   var currentDate = new Date(Date());
-  var currentDateStr = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`
+  var currentDateStr = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}\
+   - ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`
   
   //push to dummy data array  
   var randomPost = {
@@ -107,13 +108,14 @@ function renderPost(postObj) {
   //create child divs for each obj key
   var user = document.createElement('div');
   user.addEventListener('click', (event) => {
+    console.log(event)
     //clears timeline
     var timeline = document.getElementById('timeline');
     timeline.replaceChildren();
 
     //filters dummyData according to the value of the username clicked
     var filtered = dummyData.filter(postObj => postObj.user === event.target.innerHTML);
-    
+    console.log(filtered)
     //flips rendered flag to false
     for (var i = 0; i < filtered.length; i++) {
       filtered[i].isRendered = false;
@@ -149,7 +151,7 @@ function renderPost(postObj) {
 
 //renders dummyData to DOM
 function renderPosts(arr) {
-  for (var i = arr.length-1; i >= 0; i--) {
+  for (var i = 0; i < arr.length; i++) {
     //if object not already rendered, render it
     if (arr[i].isRendered === false) {
       renderPost(arr[i]);
