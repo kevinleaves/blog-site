@@ -37,6 +37,8 @@ var dummyData = [
   },      
 ]
 
+let callCount = 0
+
 //function to create randomly generated dummy posts every 1 second
 function generateDummyPost() {
   
@@ -88,7 +90,9 @@ function generateDummyPost() {
     'isRendered': false,
   }
   dummyData.push(randomPost)
+  callCount++
 }
+
 
 //generates post every 1 second in the background upon site load
 setInterval(function() {
@@ -97,7 +101,10 @@ setInterval(function() {
 
 const updateButton = document.getElementById('update');
 updateButton.addEventListener('click', function() {
-  renderPosts(dummyData)
+  renderPosts(dummyData);
+  console.log('callcount before: ', callCount)
+  callCount = 0;
+  console.log('callcount after: ', callCount)
 });
 
 //render a single post given a post object
@@ -200,7 +207,7 @@ logo.addEventListener('click', () => {
   //clear timeline
   var timeline = document.getElementById('timeline');
   timeline.replaceChildren();
-  
+
   //flip all rendered dummydata to false  
   for (var i = 0; i < dummyData.length; i++) {
     dummyData[i].isRendered = false;
@@ -209,6 +216,27 @@ logo.addEventListener('click', () => {
   //re-render all dummydata
   renderPosts(dummyData)
 });
+
+
+//show the update button only after 10 new tweets are created
+function checkUpdateButton() {
+  if (callCount < 10) {
+    updateButton.style.visibility = 'hidden'
+  } else {
+    updateButton.style.visibility = 'visible'
+  }
+  console.log(callCount)
+}
+
+setInterval(() => {
+  checkUpdateButton(), 1000;
+})
+
+
+
+
+
+
 
 
 
