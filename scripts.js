@@ -106,6 +106,24 @@ function renderPost(postObj) {
 
   //create child divs for each obj key
   var user = document.createElement('div');
+  user.addEventListener('click', (event) => {
+    //clears timeline
+    var timeline = document.getElementById('timeline');
+    timeline.replaceChildren();
+
+    //filters dummyData according to the value of the username clicked
+    var filtered = dummyData.filter(postObj => postObj.user === event.target.innerHTML);
+    
+    //flips rendered flag to false
+    for (var i = 0; i < filtered.length; i++) {
+      filtered[i].isRendered = false;
+      console.log(filtered[i])
+    }
+    
+    //iterate through filtered dummyData and renders every post
+    renderPosts(filtered);
+  })
+  
   var title = document.createElement('div');
   var date = document.createElement('div');
   var body = document.createElement('div');
@@ -129,8 +147,6 @@ function renderPost(postObj) {
   postObj.isRendered = true;
 }
 
-
-
 //renders dummyData to DOM
 function renderPosts(arr) {
   for (var i = arr.length-1; i >= 0; i--) {
@@ -141,20 +157,11 @@ function renderPosts(arr) {
   }
 }
 
+//initial rendering of dummyData
 renderPosts(dummyData)
 
-
-// function renderPost() {
-//   var post = document.createElement('div');
-//   post.classList.add('post')
-// }
-// {
-//   'body': body.value,
-// }
-
-// timeline.appendChild(post)
-
 function addPost () {
+  //save user input to an object
   var newPost = {
     'user': document.getElementById('user').value,
     'title': document.getElementById('title').value,
@@ -162,22 +169,25 @@ function addPost () {
     'body': document.getElementById('body').value,
     'isRendered': false,
   }
-  
-  dummyData.push(newPost);
-  renderPost(newPost);
 
+  //add it to dummydata
+  dummyData.push(newPost);
+
+  //render the newly created post
+  renderPost(newPost);
+  
+  //reset all input fields
   document.getElementById('user').value = ''
   document.getElementById('title').value = ''
   document.getElementById('date').value = ''
   document.getElementById('body').value = ''
 }
 
+//on post button click, call addPost
 var submit = document.getElementById('submit');
 submit.addEventListener('click', () => {
   addPost()
 });
-//on post button click
-//save user input to an object, add it to dummydata
-//render that object to dom (call renderPosts)
-//reset the input fields
+
+
 
