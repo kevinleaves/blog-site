@@ -116,6 +116,7 @@ function renderPost(postObj) {
     //filters dummyData according to the value of the username clicked
     var filtered = dummyData.filter(postObj => postObj.user === event.target.innerHTML);
     console.log(filtered)
+    console.log(dummyData)
     //flips rendered flag to false
     for (var i = 0; i < filtered.length; i++) {
       filtered[i].isRendered = false;
@@ -190,6 +191,27 @@ var submit = document.getElementById('submit');
 submit.addEventListener('click', () => {
   addPost()
 });
+
+
+//make logo render all posts again on click
+//event handler for h1
+var logo = document.querySelector('h1')
+logo.addEventListener('click', () => {
+  //clear timeline
+  var timeline = document.getElementById('timeline');
+  timeline.replaceChildren();
+  
+  //flip all rendered dummydata to false  
+  for (var i = 0; i < dummyData.length; i++) {
+    dummyData[i].isRendered = false;
+  }
+
+  //re-render all dummydata
+  renderPosts(dummyData)
+});
+
+
+
 
 
 
