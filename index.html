@@ -3,7 +3,7 @@
   <head>
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TWIDDLER - A BLATANT TWITTER CLONE</title>
+    <title>TWIDDLER</title>
     <link rel="stylesheet" href="style.css">
     <script src="scripts.js" defer></script>
   </head>
@@ -12,30 +12,28 @@
     <div class="container">
       <div id="navbar">
         <h1>Twiddler</h1>
-        <button type="button" class="button" id="update">UPDATE</button>
-        <button type="button" class="button">FUNCTION2</button>
-        <button type="button" class="button">FUNCTION3</button>
-        <button type="button" class="button">FUNCTION4</button>
-        <button type="button" class="button">FUNCTION5</button>
+        <button type="button" class="button" id="update">Update</button>
+        <button type="button" class="button">Home</button>
+        <button type="button" class="button">Notifications</button>
+        <button type="button" class="button">Messages</button>
+        <button type="button" class="button">Profile</button>
       </div>
-      <div>
-        <fieldset>
-          <legend>CREATE A TWEET</legend>
-          <label for="user">User</label>
-          <input type="text" name="user" id="user">
+      <fieldset>
+        <legend>Say something!</legend>
+        <label for="user">User</label>
+        <input type="text" name="user" id="user">
 
-          <label for="title">Title</label>
-          <input type="text" name="title" id="title">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
 
-          <label for="date">Date</label>
-          <input type="date" name="date" id="date">
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date">
 
-          <label for="body">What's happening?</label>
-          <input type="text" name="body" id="body">
+        <label for="body">What's happening?</label>
+        <input type="text" name="body" id="body">
 
-          <button type="button" id="submit">Post</button>
-        </fieldset>
-      </div>
+        <button type="button" class="button" id="submit">Post</button>
+      </fieldset>
       <div id="timeline"></div>
     </div>
   </body>

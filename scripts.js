@@ -114,6 +114,7 @@ function renderPost(postObj) {
 
   //create child divs for each obj key
   var user = document.createElement('div');
+  user.classList.add('postUser');
   user.addEventListener('click', (event) => {
     console.log(event)
     //clears timeline
@@ -135,8 +136,13 @@ function renderPost(postObj) {
   })
   
   var title = document.createElement('div');
+  title.classList.add('postTitle');
+
   var date = document.createElement('div');
+  date.classList.add('postDate');
+
   var body = document.createElement('div');
+  body.classList.add('postBody');
 
   //populate all divs with text content
   user.textContent = postObj.user;
